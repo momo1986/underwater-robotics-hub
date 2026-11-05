@@ -3,155 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>深海机器人观测站 · Underwater Robotics HOT</title>
-  <meta name="description" content="水下机器人技术前沿信息聚合站：前沿论文、经典著作、政策法规、头部企业动态，一站搜索与阅读。" />
+  <title>深海机器人观测站 · 水下机器人论文、著作、政策与行业动态</title>
+  <meta name="description" content="深海机器人观测站：水下机器人领域的前沿论文、经典著作、政策法规与行业动态，每条均附来源链接，支持全站检索。" />
+  <link rel="canonical" href="https://momo1986.github.io/underwater-robotics-hub/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="深海机器人观测站" />
+  <meta property="og:title" content="深海机器人观测站 · 水下机器人论文、著作、政策与行业动态" />
+  <meta property="og:description" content="深海机器人观测站：水下机器人领域的前沿论文、经典著作、政策法规与行业动态，每条均附来源链接，支持全站检索。" />
+  <meta property="og:url" content="https://momo1986.github.io/underwater-robotics-hub/" />
+  <meta name="theme-color" content="#03080f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>
+    /* 尽早应用主题，避免闪烁：优先用户选择，其次跟随系统 */
+    try {
+      var t = localStorage.getItem("uwr-theme");
+      if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light");
+    } catch (e) {}
+  </script>
 </head>
-<body>
-  <!-- 气泡动效背景 -->
-  <div class="bubbles" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-
-  <!-- 顶部导航 -->
-  <header class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#top">
-        <span class="brand-logo">◉</span>
-        <span class="brand-text">
-          <strong>深海机器人观测站</strong>
-          <small>UNDERWATER ROBOTICS · HOT</small>
-        </span>
-      </a>
-      <nav class="main-nav" id="mainNav">
-        <a href="#papers" class="nav-link">前沿论文</a>
-        <a href="#books" class="nav-link">经典著作</a>
-        <a href="#policies" class="nav-link">政策法规</a>
-        <a href="#news" class="nav-link">企业动态</a>
-        <a href="#about" class="nav-link">关于</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle" title="切换明暗主题">◐</button>
-    </div>
-  </header>
+<body class="home">
+  <header id="site-header" class="topbar"></header>
 
   <main id="top">
-    <!-- 品牌区 + 搜索 -->
-    <section class="hero">
-      <p class="hero-eyebrow">深海 · 观测 · 研究 · 产业</p>
-      <h1 class="hero-title">水下机器人技术<br /><em>一站式观测与检索</em></h1>
-      <p class="hero-sub">
-        持续整理水下机器人领域的<b>前沿研究论文</b>、<b>经典著作</b>、<b>政策法规</b>与<b>头部企业动态</b>，
-        从一篇论文看到一条技术路线，从一条政策看到一个产业方向。
-      </p>
-      <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="搜索标题、作者、机构、摘要与标签…（支持跨全部栏目检索）"
-          autocomplete="off"
-        />
-        <button id="searchClear" class="search-clear" title="清空搜索">×</button>
+    <section class="station">
+      <div class="station-text">
+        <p class="eyebrow"><span class="dot"></span>STATION ONLINE · 持续观测中</p>
+        <h1 class="station-title">深海机器人<br /><em>观测站</em></h1>
+        <p class="station-sub">
+          持续收录水下机器人领域的<b>研究论文</b>、<b>经典著作</b>、<b>政策法规</b>与<b>行业动态</b>。
+          每条内容都附来源链接，顺着线索就能读到原文。
+        </p>
+        <form class="search-wrap" action="search.html" method="get" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="homeSearch" name="q" type="search" placeholder="搜索标题、作者、机构、摘要与标签…" autocomplete="off" aria-label="全站搜索" />
+          <button class="search-go" type="submit">检索</button>
+        </form>
       </div>
-      <div class="search-meta" id="searchMeta" hidden></div>
-
-      <div class="stats" id="stats">
-        <div class="stat"><b data-count="217">0</b><span>前沿论文</span></div>
-        <div class="stat"><b data-count="7">0</b><span>经典著作</span></div>
-        <div class="stat"><b data-count="8">0</b><span>政策法规</span></div>
-        <div class="stat"><b data-count="10">0</b><span>企业动态</span></div>
-      </div>
-      <div class="hero-hint">↓ 向下滚动，进入四大观测区</div>
-    </section>
-
-    <!-- 01 前沿论文 -->
-    <section class="zone" id="papers">
-      <header class="zone-head">
-        <span class="zone-no">01</span>
-        <div>
-          <h2>前沿论文 <small>Research Papers</small></h2>
-          <p>217 篇：2025/2026 最新前沿优先展示，另有领域所用经典 AI / 控制理论 / 计算机视觉 / SLAM 论文</p>
-        </div>
-      </header>
-      <div class="filters" id="paperFilters"></div>
-      <div class="cards" id="paperCards"></div>
-    </section>
-
-    <!-- 02 经典著作 -->
-    <section class="zone" id="books">
-      <header class="zone-head">
-        <span class="zone-no">02</span>
-        <div>
-          <h2>经典著作 <small>Classic Books</small></h2>
-          <p>领域奠基性教材与权威手册，构建知识体系的第一书单</p>
-        </div>
-      </header>
-      <div class="filters" id="bookFilters"></div>
-      <div class="cards" id="bookCards"></div>
-    </section>
-
-    <!-- 03 政策法规 -->
-    <section class="zone" id="policies">
-      <header class="zone-head">
-        <span class="zone-no">03</span>
-        <div>
-          <h2>政策法规 <small>Policy &amp; Regulation</small></h2>
-          <p>国家法律、国际协定与产业政策，把握深海治理与产业方向</p>
-        </div>
-      </header>
-      <div class="filters" id="policyFilters"></div>
-      <div class="cards" id="policyCards"></div>
-    </section>
-
-    <!-- 04 企业动态 -->
-    <section class="zone" id="news">
-      <header class="zone-head">
-        <span class="zone-no">04</span>
-        <div>
-          <h2>企业动态 <small>Industry News</small></h2>
-          <p>国内外头部水下机器人企业的新品发布、订单与应用落地</p>
-        </div>
-      </header>
-      <div class="filters" id="newsFilters"></div>
-      <div class="cards" id="newsCards"></div>
-    </section>
-
-    <!-- 关于 -->
-    <section class="zone about" id="about">
-      <header class="zone-head">
-        <span class="zone-no">✦</span>
-        <div>
-          <h2>关于本站 <small>About</small></h2>
-          <p>参考 AI Safety HOT（aisafetyhot.com）的观测站设计理念构建</p>
-        </div>
-      </header>
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>◉ 持续观测</h3>
-          <p>论文、著作、政策、产业四条线索并行追踪，像观测深海一样观测水下机器人技术的发展脉络。</p>
-        </div>
-        <div class="about-card">
-          <h3>⌕ 一键检索</h3>
-          <p>顶部搜索框支持跨全部栏目全文检索：标题、作者/机构、摘要与标签，输入即搜、即高亮。</p>
-        </div>
-        <div class="about-card">
-          <h3>⚙ 数据可维护</h3>
-          <p>全部内容集中在 <code>js/data.js</code> 中维护，按条目增删即可更新站点，无需改动页面代码。</p>
-        </div>
+      <div class="sonar" id="sonar" aria-label="各栏目条目数">
+        <div class="sonar-sweep" aria-hidden="true"></div>
+        <span class="sonar-label sonar-n">N</span><span class="sonar-label sonar-e">E</span>
+        <span class="sonar-label sonar-s">S</span><span class="sonar-label sonar-w">W</span>
       </div>
     </section>
+
+    <div class="readout" id="readout"></div>
+
+    <div id="previews"></div>
   </main>
 
-  <footer class="footer">
-    <p><b>深海机器人观测站</b> · Underwater Robotics HOT — 论文 · 著作 · 政策 · 产业，一站观测</p>
-    <p class="footer-note">本站为技术发展信息聚合演示站点，数据为示例整理，论文与新闻请以官方来源为准。</p>
-  </footer>
+  <footer id="site-footer" class="footer"></footer>
 
-  <button id="backTop" class="back-top" title="回到顶部">↑</button>
-
-  <script src="js/data_papers.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/data/papers.js"></script>
+  <script src="js/data/books.js"></script>
+  <script src="js/data/policies.js"></script>
+  <script src="js/data/news.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

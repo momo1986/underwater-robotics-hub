@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>前沿论文 · 深海机器人观测站</title>
+  <meta name="description" content="水下机器人相关研究论文：水下视觉、SLAM 与导航、运动控制、强化学习、水声通信、仿生平台等方向。" />
+  <link rel="canonical" href="https://momo1986.github.io/underwater-robotics-hub/papers.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="深海机器人观测站" />
+  <meta property="og:title" content="前沿论文 · 深海机器人观测站" />
+  <meta property="og:description" content="水下机器人相关研究论文：水下视觉、SLAM 与导航、运动控制、强化学习、水声通信、仿生平台等方向。" />
+  <meta property="og:url" content="https://momo1986.github.io/underwater-robotics-hub/papers.html" />
+  <meta name="theme-color" content="#03080f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    /* 尽早应用主题，避免闪烁：优先用户选择，其次跟随系统 */
+    try {
+      var t = localStorage.getItem("uwr-theme");
+      if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light");
+    } catch (e) {}
+  </script>
+</head>
+<body data-section="papers">
+  <header id="site-header" class="topbar"></header>
+
+  <main id="top">
+    <section class="zone page-zone">
+      <header class="zone-head">
+        <div>
+          <p class="crumb"><a href="index.html">观测站</a> / CH-01</p>
+          <h1 class="page-title">前沿论文 <small>Research Papers</small></h1>
+          <p id="sectionDesc"></p>
+        </div>
+      </header>
+      <div class="section-search search-wrap">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="sectionSearch" type="search" placeholder="在前沿论文中搜索…（快捷键 /）" autocomplete="off" aria-label="在前沿论文中搜索" />
+      </div>
+      <div class="filters era" id="eraBar" role="group" aria-label="按年代筛选">
+        <button class="chip" data-era="all">全部年代</button>
+        <button class="chip" data-era="recent">近期研究</button>
+        <button class="chip" data-era="classic">经典基础</button>
+      </div>
+      <div class="filters" id="tagBar" aria-label="按标签筛选"></div>
+      <p class="result-meta" id="resultMeta" aria-live="polite"></p>
+      <div class="cards" id="cards"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/data/papers.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/section.js"></script>
+</body>
+</html>

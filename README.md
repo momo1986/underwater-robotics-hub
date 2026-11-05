@@ -1,40 +1,57 @@
-# 深海机器人观测站 · Underwater Robotics HOT
+# 深海机器人观测站 · Underwater Robotics Hub
 
-参考 AI Safety HOT（aisafetyhot.com）观测站设计理念构建的**水下机器人技术发展信息聚合站**。
+水下机器人领域的信息索引站：前沿论文、经典著作、政策法规与行业动态，每条内容都附有来源链接。
 
-## 功能
+在线访问：<https://momo1986.github.io/underwater-robotics-hub/>
 
-- **全站搜索**：顶部搜索框支持跨四个栏目的全文检索（标题、作者/机构、摘要、标签），输入即搜、命中高亮，支持 `/` 快捷聚焦、`Esc` 清空
-- **四大观测区**：
-  - 01 前沿论文（217 篇）：2025/2026 最新前沿优先展示（带 NEW 徽标），另有领域所用经典人工智能 / 控制理论 / 计算机视觉 / SLAM 论文（每页 60 条分页加载）
-  - 02 经典著作：Fossen、Antonelli、蒋新松等奠基性专著与权威手册
-  - 03 政策法规：国家法律、行政法规、国际协定与产业政策
-  - 04 企业动态：国内外头部水下机器人企业新闻
-- **标签筛选**：每个栏目内置独立标签筛选器，可与搜索叠加
-- **其他**：明暗主题切换、滚动导航高亮、数字动画、气泡动效、响应式布局
+## 页面
+
+| 页面 | 内容 |
+| --- | --- |
+| `index.html` | 首页：观测站主视觉（声呐屏显示各栏目条目数）、观测读数、各栏目最新条目 |
+| `papers.html` | 前沿论文：可按年代和标签筛选 |
+| `books.html` | 经典著作 |
+| `policies.html` | 政策法规（按日期倒序） |
+| `news.html` | 行业动态（按日期倒序） |
+| `search.html` | 搜索结果页（`search.html?q=关键词`）；输入框在每个页面的页头，不单独占一页 |
+| `about.html` | 收录范围、链接说明、纠错方式 |
+| `404.html` | GitHub Pages 的 404 页 |
+
+栏目页的搜索词和筛选条件会写入网址（如 `papers.html?tag=SLAM&era=recent`），可直接分享。
 
 ## 目录结构
 
 ```
-├── index.html      # 页面结构
-├── css/style.css   # 深海观测台风格样式
+├── *.html            # 各页面（结构相同：页头/页脚由 js/common.js 注入）
+├── css/style.css     # 样式（深色 / 浅色主题）
+├── favicon.svg
+├── sitemap.xml / robots.txt
 └── js/
-    ├── data_papers.js  # 论文数据层（200+ 篇，在此增删条目即可更新论文区）
-    ├── data.js     # 其他栏目数据层（著作/政策/新闻）
-    └── app.js      # 交互层（渲染/筛选/搜索/分页/主题）
+    ├── data/
+    │   ├── papers.js    # 论文
+    │   ├── books.js     # 著作
+    │   ├── policies.js  # 政策法规
+    │   └── news.js      # 行业动态
+    ├── common.js     # 页头页脚、主题、卡片渲染、工具函数
+    ├── section.js    # 栏目页：筛选、分页、URL 状态
+    ├── home.js       # 首页
+    └── search.js     # 搜索页
 ```
+
+## 维护数据
+
+- 增删条目只需改 `js/data/` 下对应文件，统计数字、标签和首页预览都会自动更新。
+- `url` 必须指向原文页面（论文页、发布页、具体报道），**不要填网站首页**。
+- 论文链接优先填 arXiv（开放获取），其次填 DOI（`https://doi.org/...`）。
+- 暂时找不到原文时：论文的链接留空，页面显示「Google Scholar 检索」；其他栏目留空 `url` 并填写 `search` 关键词，页面显示「检索原文」。
+- 修改数据后，把 `js/common.js` 里的 `SITE.updated` 改成当天日期。
 
 ## 本地运行
 
-无需构建，任选其一：
+无需构建：
 
 ```bash
-# Python
 python3 -m http.server 8080
-# 或 Node
-npx serve .
 ```
 
-浏览器访问 <http://localhost:8080>。
-
-> 说明：站内数据为示例整理，论文与新闻请以官方来源为准，可持续在 `js/data.js` 中维护更新。
+然后访问 <http://localhost:8080>。

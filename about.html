@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于 · 深海机器人观测站</title>
+  <meta name="description" content="深海机器人观测站的收录范围、数据来源与维护方式。" />
+  <link rel="canonical" href="https://momo1986.github.io/underwater-robotics-hub/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="深海机器人观测站" />
+  <meta property="og:title" content="关于 · 深海机器人观测站" />
+  <meta property="og:description" content="深海机器人观测站的收录范围、数据来源与维护方式。" />
+  <meta property="og:url" content="https://momo1986.github.io/underwater-robotics-hub/about.html" />
+  <meta name="theme-color" content="#03080f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    /* 尽早应用主题，避免闪烁：优先用户选择，其次跟随系统 */
+    try {
+      var t = localStorage.getItem("uwr-theme");
+      if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.classList.add("light");
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header id="site-header" class="topbar"></header>
+
+  <main id="top">
+    <section class="zone page-zone prose">
+      <header class="zone-head">
+        <div>
+          <p class="crumb"><a href="index.html">观测站</a> / ABOUT</p>
+          <h1 class="page-title">关于本站 <small>About</small></h1>
+        </div>
+      </header>
+
+      <h2>收录什么</h2>
+      <ul>
+        <li><b>前沿论文</b>：水下机器人方向的近期研究，以及该领域常用的经典人工智能、控制、计算机视觉与 SLAM 论文。</li>
+        <li><b>经典著作</b>：水动力建模、运动控制、作业操控、水声学等方向的教材与手册。</li>
+        <li><b>政策法规</b>：与深海活动、海洋观测和海工装备相关的法律、规划与国际协定。</li>
+        <li><b>行业动态</b>：国内外企业与科研机构的产品发布、订单和重大任务。</li>
+      </ul>
+
+      <h2>链接说明</h2>
+      <p>每张卡片底部的链接指向原文：论文优先链接 arXiv、出版社或会议页面，政策链接政府或国际组织的发布页，动态链接具体报道或新闻稿。</p>
+      <p>部分条目暂时没有找到可靠的原文页面，链接会显示为<span class="card-link is-search">「检索原文」</span>或<span class="card-link is-search">「Google Scholar 检索」</span>，点击后会在搜索引擎中查找。欢迎补充这些条目的原文链接。</p>
+
+      <h2>纠错与投稿</h2>
+      <p>发现信息错误或链接失效，或者想推荐值得收录的论文、著作、政策与新闻，欢迎在 <a id="issueLink" target="_blank" rel="noopener">GitHub Issues</a> 留言，我们会尽快核实并更新。</p>
+
+      <h2>使用技巧</h2>
+      <ul>
+        <li>页面顶部的搜索框可检索全站内容；按 <kbd>/</kbd> 可快速聚焦，按 <kbd>Esc</kbd> 清空。</li>
+        <li>多个关键词用空格分隔，会同时匹配。</li>
+        <li>筛选条件会写入网址，可以直接复制链接分享当前筛选结果。</li>
+      </ul>
+    </section>
+    <script>document.addEventListener("DOMContentLoaded",function(){document.getElementById("issueLink").href=SITE.repo+"/issues";});</script>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="js/common.js"></script>
+
+</body>
+</html>
